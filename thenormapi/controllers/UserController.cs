@@ -21,15 +21,10 @@ public class UserController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<IUser>> Get(Guid id)
     {
-        var bob = await Task.FromResult("User found");
+        var bob = await Task.FromResult($"User {id} found");
         return Ok(bob);
     }
 
-    [HttpPost]
-    public async Task<ActionResult<IUser>> CreateUser(User user)
-    {
 
-        return Ok("User Created");
-    }
 
 }
