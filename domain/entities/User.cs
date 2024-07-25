@@ -1,8 +1,9 @@
 ﻿using System;
+using domain.interfaces;
 
 namespace domain.entities;
 
-public class User
+public class User : IUser
 {
 
     public Guid Id { get; private set; }
