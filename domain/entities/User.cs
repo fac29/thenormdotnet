@@ -5,7 +5,6 @@ namespace domain.entities;
 
 public class User : IUser
 {
-
     public Guid Id { get; private set; }
 
     public string Name { get; set; } = string.Empty;

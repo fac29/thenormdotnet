@@ -9,4 +9,5 @@ public interface IUser
     string Email { get; set; }
     string SummaryParagraph { get; set; }
     DateTime Created { get; set; }
+
 }
