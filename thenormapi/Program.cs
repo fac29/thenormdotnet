@@ -28,7 +28,8 @@ else
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connection));
 
-// builder.Services.AddScoped<IUser, UserRepository>();
+//register the UserRepository and IUserRepository in your dependency injection container
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 
