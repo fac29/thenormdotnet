@@ -3228,7 +3228,6 @@
     "net8.0": [
       "Microsoft.AspNetCore.OpenApi >= 8.0.6",
       "Swashbuckle.AspNetCore >= 6.4.0",
-      "domain >= 1.0.0",
       "infrastructure >= 1.0.0"
     ]
   },
@@ -3257,9 +3256,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/thatgui/Documents/SoftwareEngineer/2024/fac/week10/thenormdotnet/domain/domain.csproj": {
-              "projectPath": "/Users/thatgui/Documents/SoftwareEngineer/2024/fac/week10/thenormdotnet/domain/domain.csproj"
-            },
             "/Users/thatgui/Documents/SoftwareEngineer/2024/fac/week10/thenormdotnet/infrastructure/infrastructure.csproj": {
               "projectPath": "/Users/thatgui/Documents/SoftwareEngineer/2024/fac/week10/thenormdotnet/infrastructure/infrastructure.csproj"
             }

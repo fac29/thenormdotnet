@@ -168,9 +168,6 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/thatgui/Documents/SoftwareEngineer/2024/fac/week10/thenormdotnet/domain/domain.csproj": {
-                "projectPath": "/Users/thatgui/Documents/SoftwareEngineer/2024/fac/week10/thenormdotnet/domain/domain.csproj"
-              },
               "/Users/thatgui/Documents/SoftwareEngineer/2024/fac/week10/thenormdotnet/infrastructure/infrastructure.csproj": {
                 "projectPath": "/Users/thatgui/Documents/SoftwareEngineer/2024/fac/week10/thenormdotnet/infrastructure/infrastructure.csproj"
               }

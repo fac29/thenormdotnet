@@ -28,6 +28,7 @@ else
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connection));
 
+
 //register the UserRepository and IUserRepository in your dependency injection container
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
