@@ -18,7 +18,7 @@ public class AzureIdentityAuthenticationDbConnectionInterceptor : DbConnectionIn
 
      // new ManagedIdentityCredential(),
 
-     new VisualStudioCodeCredential(),
+     //  new VisualStudioCodeCredential(),
      new VisualStudioCredential());
 
 
