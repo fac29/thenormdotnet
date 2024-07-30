@@ -26,7 +26,10 @@ else
 }
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connection));
+    {
+        options.UseSqlServer(connection);
+        options.AddInterceptors(new AzureIdentityAuthenticationDbConnectionInterceptor());
+    });
 
 
 //register the UserRepository and IUserRepository in your dependency injection container
@@ -37,6 +40,12 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    // this means that everytime i run the application locally, it will make sure the db is updated
+    using var serviceScope = app.Services.CreateScope();
+    var Services = serviceScope.ServiceProvider;
+    var dbContext = Services.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate();
+    //
     app.UseSwagger();
     app.UseSwaggerUI();
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("thenormapi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2bfba3857a22ce33a30eeb45ce15ec83dde7b2b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+771480f56f814b654743098eb94b4534668d6185")]
 [assembly: System.Reflection.AssemblyProductAttribute("thenormapi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("thenormapi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
