@@ -16,12 +16,10 @@ public class AzureIdentityAuthenticationDbConnectionInterceptor : DbConnectionIn
 
     private readonly TokenCredential _credential = new ChainedTokenCredential(
 
-     // new ManagedIdentityCredential(),
-
-     //  new VisualStudioCodeCredential(),
+     new ManagedIdentityCredential(),
+     new AzureCliCredential(),
+     new VisualStudioCodeCredential(),
      new VisualStudioCredential());
-
-
 
 
     private static AccessToken _token;
@@ -81,18 +79,12 @@ public class AzureIdentityAuthenticationDbConnectionInterceptor : DbConnectionIn
     {
 
         //
-
         // Only try to get a token from AAD if
-
         //  - We connect to an Azure SQL instance; and
-
         //  - The connection doesn't specify a username.
-
         //
 
         var connectionStringBuilder = new SqlConnectionStringBuilder(connection.ConnectionString);
-
-
 
         return connectionStringBuilder.DataSource.Contains("database.windows.net", StringComparison.OrdinalIgnoreCase) && string.IsNullOrEmpty(connectionStringBuilder.UserID);
 
