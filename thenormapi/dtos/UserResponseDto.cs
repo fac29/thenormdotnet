@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using domain.interfaces;
-
-namespace domain.entities
+﻿namespace thenormapi.dtos
 {
-    public class User : IUser
+    public class UserResponseDto
     {
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string SummaryParagraph { get; set; } = string.Empty;

@@ -17,7 +17,7 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
-    public async Task<IUser> GetByIdAsync(Guid id)
+    public async Task<IUser?> GetByIdAsync(Guid id)
     {
         return await _context.Users.FindAsync(id);
     }
@@ -35,6 +35,7 @@ public class UserRepository : IUserRepository
             Email = user.Email,
             SummaryParagraph = user.SummaryParagraph,
             Created = DateTime.UtcNow
+            // UserResourceIds will be initialized to an empty list by default
         };
         _context.Users.Add(newUser);
         await _context.SaveChangesAsync();
