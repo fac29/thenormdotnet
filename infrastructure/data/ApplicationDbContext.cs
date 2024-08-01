@@ -14,4 +14,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<User> Users { get; set; }
 
     public DbSet<UserResources> UserResources { get; set; }
+
+    public DbSet<WheelSegment> WheelSegment { get; set; }
+
 }

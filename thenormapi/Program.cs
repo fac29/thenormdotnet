@@ -35,6 +35,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //register the UserRepository and IUserRepository in your dependency injection container
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserResourcesRepository, UserResourcesRepository>();
+builder.Services.AddScoped<IWheelSegmentRepository, WheelSegmentRepository>();
 
 var app = builder.Build();
 
