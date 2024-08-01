@@ -1,11 +1,10 @@
 ﻿using System;
-using domain.interfaces;
 
-namespace domain.entities;
+namespace thenormapi.dtos;
 
-public class UserResources : IUserResources
+public class UserResourceResponseDto
 {
-    public Guid Id { get; private set; }
+    public Guid Id { get; set; }
     public string Title { get; set; } = string.Empty;
     public string Author { get; set; } = string.Empty;
     public string Type { get; set; } = string.Empty;

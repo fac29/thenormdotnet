@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using domain.interfaces;
 using infrastructure.repositories;
+using thenormapi.dtos;
+using domain.entities;
+
 
 namespace thenormapi.controllers;
 
@@ -19,39 +22,44 @@ public class UserResourcesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<IUserResources>>> GetAll()
+    public async Task<ActionResult<IEnumerable<UserResourceResponseDto>>> GetAll()
     {
         var resources = await _repository.GetAllAsync();
-        return Ok(resources);
+        var responseDtos = resources.Select(MapToResponseDto);
+        return Ok(responseDtos);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<IUserResources>> GetById(Guid id)
+    public async Task<ActionResult<UserResourceResponseDto>> GetById(Guid id)
     {
         var resource = await _repository.GetByIdAsync(id);
         if (resource == null)
         {
             return NotFound();
         }
-        return Ok(resource);
+        return Ok(MapToResponseDto(resource));
     }
 
     [HttpPost]
-    public async Task<ActionResult<IUserResources>> Create([FromBody] IUserResources userResource)
+    public async Task<ActionResult<UserResourceResponseDto>> Create([FromBody] UserResourceDto userResourceDto)
     {
+        var userResource = MapToUserResource(userResourceDto);
         var createdResource = await _repository.CreateAsync(userResource);
-        return CreatedAtAction(nameof(GetById), new { id = createdResource.Id }, createdResource);
+        var responseDto = MapToResponseDto(createdResource);
+        return CreatedAtAction(nameof(GetById), new { id = responseDto.Id }, responseDto);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(Guid id, [FromBody] IUserResources userResource)
+    public async Task<IActionResult> Update(Guid id, [FromBody] UserResourceDto userResourceDto)
     {
-        if (id != userResource.Id)
+        var existingResource = await _repository.GetByIdAsync(id);
+        if (existingResource == null)
         {
-            return BadRequest();
+            return NotFound();
         }
 
-        var updatedResource = await _repository.UpdateAsync(userResource);
+        UpdateUserResourceFromDto(existingResource, userResourceDto);
+        var updatedResource = await _repository.UpdateAsync(existingResource);
         if (updatedResource == null)
         {
             return NotFound();
@@ -70,5 +78,44 @@ public class UserResourcesController : ControllerBase
         }
 
         return NoContent();
+    }
+
+    private UserResourceResponseDto MapToResponseDto(IUserResources userResource)
+    {
+        return new UserResourceResponseDto
+        {
+            Id = userResource.Id,
+            Title = userResource.Title,
+            Author = userResource.Author,
+            Type = userResource.Type,
+            Content = userResource.Content,
+            ExternalReference = userResource.ExternalReference,
+            ResourcePicture = userResource.ResourcePicture,
+            Created = userResource.Created
+        };
+    }
+
+    private IUserResources MapToUserResource(UserResourceDto dto)
+    {
+        return new UserResources
+        {
+            Title = dto.Title,
+            Author = dto.Author,
+            Type = dto.Type,
+            Content = dto.Content,
+            ExternalReference = dto.ExternalReference,
+            ResourcePicture = dto.ResourcePicture,
+
+        };
+    }
+
+    private void UpdateUserResourceFromDto(IUserResources resource, UserResourceDto dto)
+    {
+        resource.Title = dto.Title;
+        resource.Author = dto.Author;
+        resource.Type = dto.Type;
+        resource.Content = dto.Content;
+        resource.ExternalReference = dto.ExternalReference;
+        resource.ResourcePicture = dto.ResourcePicture;
     }
 }

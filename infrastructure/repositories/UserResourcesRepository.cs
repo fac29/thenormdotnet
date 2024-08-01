@@ -32,7 +32,7 @@ public class UserResourcesRepository : IUserResourcesRepository
     {
         var entity = new UserResources
         {
-            Id = Guid.NewGuid(),
+
             Title = userResource.Title,
             Author = userResource.Author,
             Type = userResource.Type,

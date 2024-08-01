@@ -1,16 +1,13 @@
 ﻿using System;
-using domain.interfaces;
 
-namespace domain.entities;
+namespace thenormapi.dtos;
 
-public class UserResources : IUserResources
+public class UserResourceDto
 {
-    public Guid Id { get; private set; }
     public string Title { get; set; } = string.Empty;
     public string Author { get; set; } = string.Empty;
     public string Type { get; set; } = string.Empty;
     public string Content { get; set; } = string.Empty;
     public string ExternalReference { get; set; } = string.Empty;
     public string ResourcePicture { get; set; } = string.Empty;
-    public DateTime Created { get; set; }
 }
