@@ -81,7 +81,6 @@ public class UserController : ControllerBase
             Name = user.Name,
             Email = user.Email,
             SummaryParagraph = user.SummaryParagraph,
-            UserResourceIds = user.UserResourceIds,
             Created = user.Created
         };
     }
@@ -93,7 +92,6 @@ public class UserController : ControllerBase
             Name = dto.Name,
             Email = dto.Email,
             SummaryParagraph = dto.SummaryParagraph
-            // UserResourceIds will be initialized to an empty list by default
         };
     }
 

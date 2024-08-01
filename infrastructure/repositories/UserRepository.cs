@@ -35,7 +35,7 @@ public class UserRepository : IUserRepository
             Email = user.Email,
             SummaryParagraph = user.SummaryParagraph,
             Created = DateTime.UtcNow
-            // UserResourceIds will be initialized to an empty list by default
+
         };
         _context.Users.Add(newUser);
         await _context.SaveChangesAsync();
