@@ -48,7 +48,6 @@ public class WheelSegmentRepository : IWheelSegmentRepository
         {
             existingWheelSegment.Title = wheelSegment.Title;
             existingWheelSegment.SegmentResult = wheelSegment.SegmentResult;
-            existingWheelSegment.UserId = wheelSegment.UserId;
             existingWheelSegment.UserResourceId = wheelSegment.UserResourceId;
             existingWheelSegment.Updated = DateTime.UtcNow;
             await _context.SaveChangesAsync();

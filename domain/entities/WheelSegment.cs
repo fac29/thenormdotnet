@@ -1,4 +1,5 @@
 ﻿using System;
+
 using domain.interfaces;
 
 namespace domain.entities;
@@ -11,7 +12,7 @@ public class WheelSegment : IWheelSegment
 
     public string SegmentResult { get; set; } = string.Empty;
 
-    public Guid UserId { get; set; }
+    public string UserId { get; set; }
 
     public Guid UserResourceId { get; set; }
 
