@@ -6,9 +6,9 @@ namespace domain.interfaces;
 
 public interface IUserRepository
 {
-    Task<IUser> GetByIdAsync(Guid id);
+    Task<IUser> GetByIdAsync(string id);
     Task<IEnumerable<IUser>> GetAllAsync();
     Task<IUser> CreateAsync(IUser user);
     Task UpdateAsync(IUser user);
-    Task DeleteAsync(Guid id);
+    Task DeleteAsync(string id);
 }

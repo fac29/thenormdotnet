@@ -29,7 +29,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<UserResponseDto>> GetUser(Guid id)
+    public async Task<ActionResult<UserResponseDto>> GetUser(string id)
     {
         var user = await _userRepository.GetByIdAsync(id);
         if (user == null)
@@ -48,7 +48,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateUser(Guid id, UserDto userDto)
+    public async Task<IActionResult> UpdateUser(string id, UserDto userDto)
     {
         var existingUser = await _userRepository.GetByIdAsync(id);
         if (existingUser == null)
@@ -62,7 +62,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteUser(Guid id)
+    public async Task<IActionResult> DeleteUser(string id)
     {
         var user = await _userRepository.GetByIdAsync(id);
         if (user == null)
@@ -80,8 +80,10 @@ public class UserController : ControllerBase
             Id = user.Id,
             Name = user.Name,
             Email = user.Email,
+            PictureUrl = user.PictureUrl,
             SummaryParagraph = user.SummaryParagraph,
-            Created = user.Created
+            Created = user.Created,
+            Updated = user.Updated
         };
     }
 
@@ -89,8 +91,10 @@ public class UserController : ControllerBase
     {
         return new User
         {
+            Id = dto.Id,
             Name = dto.Name,
             Email = dto.Email,
+            PictureUrl = dto.PictureUrl,
             SummaryParagraph = dto.SummaryParagraph
         };
     }
@@ -99,6 +103,8 @@ public class UserController : ControllerBase
     {
         user.Name = dto.Name;
         user.Email = dto.Email;
+        user.PictureUrl = dto.PictureUrl;
         user.SummaryParagraph = dto.SummaryParagraph;
+        user.Updated = DateTime.UtcNow;
     }
 }

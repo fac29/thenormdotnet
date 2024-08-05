@@ -20,4 +20,6 @@ public interface IUserResources
 
     DateTime Created { get; }
 
+    DateTime Updated { get; set; }
+
 }
