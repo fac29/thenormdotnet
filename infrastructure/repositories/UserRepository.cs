@@ -17,9 +17,10 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
-    public async Task<IUser?> GetByIdAsync(Guid id)
+    public async Task<IUser?> GetByIdAsync(string id)
     {
-        return await _context.Users.FindAsync(id);
+        var user = await _context.Users.FindAsync(id);
+        return user;
     }
 
     public async Task<IEnumerable<IUser>> GetAllAsync()
@@ -31,8 +32,10 @@ public class UserRepository : IUserRepository
     {
         var newUser = new User
         {
+            Id = user.Id,
             Name = user.Name,
             Email = user.Email,
+            PictureUrl = user.PictureUrl,
             SummaryParagraph = user.SummaryParagraph,
             Created = DateTime.UtcNow
 
@@ -49,12 +52,14 @@ public class UserRepository : IUserRepository
         {
             existingUser.Name = user.Name;
             existingUser.Email = user.Email;
+            existingUser.PictureUrl = user.PictureUrl;
             existingUser.SummaryParagraph = user.SummaryParagraph;
+            existingUser.Updated = DateTime.UtcNow;
             await _context.SaveChangesAsync();
         }
     }
 
-    public async Task DeleteAsync(Guid id)
+    public async Task DeleteAsync(string id)
     {
         var user = await _context.Users.FindAsync(id);
         if (user != null)

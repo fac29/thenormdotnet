@@ -66,7 +66,6 @@ public class WheelSegmentController : ControllerBase
 
         existingWheelSegment.Title = updateDto.Title;
         existingWheelSegment.SegmentResult = updateDto.SegmentResult;
-        existingWheelSegment.UserId = updateDto.UserId;
         existingWheelSegment.UserResourceId = updateDto.UserResourceId;
         existingWheelSegment.Updated = DateTime.UtcNow;
 

@@ -10,7 +10,7 @@ public interface IWheelSegment
 
     string SegmentResult { get; set; }
 
-    Guid UserId { get; set; }
+    string UserId { get; set; }
 
     Guid UserResourceId { get; set; }
 

@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "a4mEp165JrM=",
+  "dgSpecHash": "BuSh7DFRMUE=",
   "success": true,
   "projectFilePath": "/Users/thatgui/Documents/SoftwareEngineer/2024/fac/week10/thenormdotnet/thenormapi/thenormapi.csproj",
   "expectedPackageFiles": [
     "/Users/thatgui/.nuget/packages/azure.core/1.40.0/azure.core.1.40.0.nupkg.sha512",
     "/Users/thatgui/.nuget/packages/azure.identity/1.12.0/azure.identity.1.12.0.nupkg.sha512",
     "/Users/thatgui/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.7/microsoft.aspnetcore.authentication.jwtbearer.8.0.7.nupkg.sha512",
+    "/Users/thatgui/.nuget/packages/microsoft.aspnetcore.authentication.openidconnect/8.0.7/microsoft.aspnetcore.authentication.openidconnect.8.0.7.nupkg.sha512",
     "/Users/thatgui/.nuget/packages/microsoft.aspnetcore.openapi/8.0.6/microsoft.aspnetcore.openapi.8.0.6.nupkg.sha512",
     "/Users/thatgui/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/thatgui/.nuget/packages/microsoft.data.sqlclient/5.1.5/microsoft.data.sqlclient.5.1.5.nupkg.sha512",

@@ -91,7 +91,8 @@ public class UserResourcesController : ControllerBase
             Content = userResource.Content,
             ExternalReference = userResource.ExternalReference,
             ResourcePicture = userResource.ResourcePicture,
-            Created = userResource.Created
+            Created = userResource.Created,
+            Updated = userResource.Updated
         };
     }
 
@@ -117,5 +118,6 @@ public class UserResourcesController : ControllerBase
         resource.Content = dto.Content;
         resource.ExternalReference = dto.ExternalReference;
         resource.ResourcePicture = dto.ResourcePicture;
+        resource.Updated = DateTime.UtcNow;
     }
 }

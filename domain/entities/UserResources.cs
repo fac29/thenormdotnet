@@ -1,4 +1,5 @@
 ﻿using System;
+
 using domain.interfaces;
 
 namespace domain.entities;
@@ -13,4 +14,6 @@ public class UserResources : IUserResources
     public string ExternalReference { get; set; } = string.Empty;
     public string ResourcePicture { get; set; } = string.Empty;
     public DateTime Created { get; set; }
+    public DateTime Updated { get; set; }
+
 }

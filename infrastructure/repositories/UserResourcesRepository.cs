@@ -18,9 +18,10 @@ public class UserResourcesRepository : IUserResourcesRepository
         _context = context;
     }
 
-    public async Task<IUserResources> GetByIdAsync(Guid id)
+    public async Task<IUserResources?> GetByIdAsync(Guid id)
     {
-        return await _context.UserResources.FindAsync(id);
+        var entity = await _context.UserResources.FindAsync(id);
+        return entity;
     }
 
     public async Task<IEnumerable<IUserResources>> GetAllAsync()
@@ -47,7 +48,7 @@ public class UserResourcesRepository : IUserResourcesRepository
         return entity;
     }
 
-    public async Task<IUserResources> UpdateAsync(IUserResources userResource)
+    public async Task<IUserResources?> UpdateAsync(IUserResources userResource)
     {
         var entity = await _context.UserResources.FindAsync(userResource.Id);
         if (entity == null)
@@ -61,6 +62,7 @@ public class UserResourcesRepository : IUserResourcesRepository
         entity.Content = userResource.Content;
         entity.ExternalReference = userResource.ExternalReference;
         entity.ResourcePicture = userResource.ResourcePicture;
+        entity.Updated = DateTime.UtcNow;
 
         await _context.SaveChangesAsync();
         return entity;
