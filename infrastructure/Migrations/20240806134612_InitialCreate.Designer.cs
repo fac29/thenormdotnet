@@ -12,8 +12,8 @@ using infrastructure.data;
 namespace infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240805214912_ModifyUserIdToString")]
-    partial class ModifyUserIdToString
+    [Migration("20240806134612_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
